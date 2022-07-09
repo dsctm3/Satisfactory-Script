@@ -42,5 +42,10 @@ sudo -i -u steam curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/ste
 sudo -i -u steam tar -zxvf /opt/steam/steamcmd_linux.tar.gz --directory=/opt/steam/
 
 sudo -i -u steam /opt/steam/steamcmd.sh +force_install_dir /opt/steam/satisfactory/ +login anonymous +app_update 1690800 -beta public validate +quit
+## Create Linux Service
 sudo -i -u root wget https://raw.githubusercontent.com/dsctm3/Satisfactory-Script/main/satisfactory.service -O /etc/systemd/system/satisfactory.service
 sudo -i -u root systemctl enable satisfactory.service
+
+## Let folks now what's up?
+echo "Install completed - run the following to start server."
+echo "sudo -i -u root systemctl start satisfactory"
