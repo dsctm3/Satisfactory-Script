@@ -6,7 +6,8 @@ After=syslog.target network.target nss-lookup.target network-online.target
 [Service]
 Environment="LD_LIBRARY_PATH=./linux64"
 ExecStartPre=/opt/steam/steamcmd.sh +force_install_dir "/opt/steam/satisfactory" +login anonymous +app_update 1690800 validate +quit
-ExecStart=/opt/steam/satisfactory/FactoryServer.sh
+#ExecStart=/opt/steam/satisfactory/FactoryServer.sh
+ExecStart=/opt/steam/satisfactory/FactoryServer.sh -⁠ServerQueryPort=15000 -⁠BeaconPort=15001 -Port=15002 -log -unattended
 User=steam
 Group=steam
 StandardOutput=journal
